@@ -47,31 +47,31 @@
 
               <tr>
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($supplier -> supplier_name) }}  {{-- duyệt lấy category_name --}}
                     </span>
                 </td>
 
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($supplier -> supplier_amuont) }}  {{-- duyệt lấy category_name --}}
                     </span>
                 </td>
 
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($supplier -> supplier_price) }}  {{-- duyệt lấy category_name --}}
                     </span>
                 </td>
 
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($supplier -> category_name) }}  {{-- duyệt lấy category_name --}}
                     </span>
                 </td>
 
                 <td>
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($supplier -> supplier_product) }}  {{-- duyệt lấy category_name --}}
                     </span>
                 </td>
