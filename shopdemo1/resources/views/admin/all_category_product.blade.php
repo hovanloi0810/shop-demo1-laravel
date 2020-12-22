@@ -43,7 +43,7 @@
               @foreach ($all_category_product as $key => $cate_pro) {{-- dùng để duyệt lấy data  --}}
               <tr>
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($cate_pro -> category_name) }}  {{-- duyệt lấy category_name --}}
                     </span>
                 </td>

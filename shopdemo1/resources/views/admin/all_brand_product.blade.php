@@ -44,7 +44,7 @@
 
               <tr>
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($brand_pro -> brand_name) }}  {{-- duyệt lấy category_name --}}
                     </span>
                 </td>

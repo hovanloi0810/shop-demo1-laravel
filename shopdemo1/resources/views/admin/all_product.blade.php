@@ -49,13 +49,13 @@
 
               <tr>
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($pro -> product_name) }}  {{-- duyệt lấy category_name --}}
                     </span>
                 </td>
 
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($pro -> product_price) }}  {{-- duyệt lấy category_name --}}
                     </span>
                 </td>
@@ -65,19 +65,19 @@
                 </td>
 
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($pro -> supplier_name) }}
                     </span>
                 </td>
 
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($pro -> category_name) }}  {{-- duyệt lấy category_name --}}
                     </span>
                 </td>
 
                 <td >
-                    <span class="label label-default" style="font-size: 13px">
+                    <span class="font-weight-normal" style="font-size: 13px">
                         {{ ($pro -> brand_name) }}  {{-- duyệt lấy brand_name --}}
                     </span>
                 </td>
