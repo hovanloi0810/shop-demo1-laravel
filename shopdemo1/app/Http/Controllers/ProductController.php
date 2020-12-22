@@ -15,28 +15,49 @@ use PhpParser\Node\Expr\FuncCall;
 
 class ProductController extends Controller
 {
+    //Xac thuc dang nhap
+    public function AuthLogin()
+    {
+        $admin_id = session()->get('admin_id');                             //lay du lieu admin_id
+
+        if ($admin_id) {                                                    //neu admin_id ton tai
+            return Redirect::to('admin.dashboard');                         //thi Redirect ve admin.dashboard
+        } else {                                                            //Nguoc lai
+            return Redirect::to('admin') -> send();                         //thi Redirect ve admin
+        }
+
+    }
+
     //Trả về phần từ trang /add_product
     public function add_product()
     {
+        $this -> AuthLogin();                                               //Goi lai fuction AuthLogin()
         $cate_product = DB::table('tbl_category_product')
-                        -> orderby('category_id', 'desc')
-                        -> get();                                                                        //dùng để nhóm cột category_id rồi get() ra
+                    -> orderby('category_id', 'desc')
+                    -> get();
 
         $brand_product = DB::table('table_brand')
-                        -> orderby('brand_id', 'desc')
-                        -> get();                                                                        //dùng để nhóm cột category_id rồi get() ra
+                    -> orderby('brand_id', 'desc')
+                    -> get();
 
-        return view('admin.add_product') -> with('cate_product', $cate_product)
-                                         -> with('brand_product', $brand_product);                       //dùng để trang add_product chứa cate_product -> gáng vào biến $cate_product
+        $supplier_product = DB::table('table_supplier')
+                    -> orderby('supplier_id', 'desc')
+                    -> get();
+
+        return view('admin.add_product') -> with('cate_pro', $cate_product)
+                                         -> with('brand_pro', $brand_product)
+                                         -> with('supplier_pro', $supplier_product); //dùng để trang admin_layout chứa manager_category_product -> gáng vào biến $manager_category_product
 
     }
 
     //liệt kê data ra list ở trang all-product.blade.php
     public function all_product()
     {
+        $this -> AuthLogin();                                                                                       //Goi lai fuction AuthLogin()
         $all_product     = DB::table('table_product')
         -> join('tbl_category_product', 'tbl_category_product.category_id', '=', 'table_product.category_id')        //join bảng table_product -> giao nhau với tbl_category_product với điều kiện 'tbl_category_product.category_id', '=', 'table_product.category_id'
         -> join('table_brand','table_brand.brand_id', '=', 'table_product.brand_id')                                 //join bảng table_product -> giao nhau với table_brand
+        -> join('table_supplier','table_supplier.supplier_id', '=', 'table_product.supplier_id')
         -> orderby('table_product.product_id', 'desc') -> get();                                                     //nhóm lại theo 'table_product.product_id', 'desc' -> get()
 
 
@@ -49,6 +70,7 @@ class ProductController extends Controller
     //insert thông tin product
     public function save_product(Request $request)
     {
+        $this -> AuthLogin();                                                     //Goi lai fuction AuthLogin()
         $data = array();                                                          //khởi tạo biến data thành 1 array
         $data['product_name']    = $request -> product_name;
         $data['product_price']   = $request -> product_price;                     //$data['category_name']: tên đã đặt migration => tên cột
@@ -56,8 +78,9 @@ class ProductController extends Controller
         $data['product_content'] = $request -> product_content;
         $data['category_id']     = $request -> product_cate;
         $data['brand_id']        = $request -> product_brand;
+        $data['supplier_id']     = $request -> product_supplier;
         $data['product_status']  = $request -> product_status;
-        $data['product_image']  = $request -> product_status;
+        $data['product_image']   = $request -> product_status;
         $get_image               = $request -> file('product_image');                                       //Thao tác với file image => cách khác
 
         // add image
@@ -87,6 +110,7 @@ class ProductController extends Controller
     //Chuyển từ Hidden => Show
     public function unactive_product($product_id)                                     // truyền tham số $category_product_id từ routes để controll cái category_id
     {
+        $this -> AuthLogin();                                                         //Goi lai fuction AuthLogin()
         DB::table('table_product')                                                    //=>Vào db table('tbl_category_product') để lấy category_id so sánh với $category_product_id nếu == thì update('category_status' từ 0 => 1)
         -> where('product_id',$product_id)
         -> update(['product_status' => 1]);                                           //để trong [] vì nó đc khái báo ở trên là 1 array
@@ -97,6 +121,7 @@ class ProductController extends Controller
     //Chuyển từ Hidden => Show
     public function active_product($product_id)                                       //truyền tham số $category_product_id từ routes để controll cái category_id
     {
+        $this -> AuthLogin();                                                         //Goi lai fuction AuthLogin()
         DB::table('table_product')                                                    //=>Vào db table('tbl_category_product') để lấy category_id so sánh với $category_product_id nếu == thì update('category_status' từ 0 => 1)
         -> where('product_id',$product_id)
         -> update(['product_status' => 0]);                                           //để trong [] vì nó đc khái báo ở trên là 1 array
@@ -105,41 +130,49 @@ class ProductController extends Controller
     }
 
     // Trả về trang edit_product với cái category_id
-    public function edit_product($product_id)                                                         // truyền tham số $category_product_id từ routes để controll cái category_id
+    public function edit_product($product_id)                                          // truyền tham số $category_product_id từ routes để controll cái category_id
     {
-        $cate_product = DB::table('tbl_category_product')
+        $this -> AuthLogin();                                                          //Goi lai fuction AuthLogin()
+        $cate_pro = DB::table('tbl_category_product')
         -> orderby('category_id', 'desc')
-        -> get();                                                                                     //dùng để nhóm cột category_id rồi get() ra
+        -> get();                                                                      //dùng để nhóm cột category_id rồi get() ra
 
-        $brand_product = DB::table('table_brand')
+        $brand_pro = DB::table('table_brand')
         -> orderby('brand_id', 'desc')
-        -> get();                                                                                     //dùng để nhóm cột category_id rồi get() ra
+        -> get();                                                                      //dùng để nhóm cột category_id rồi get() ra
+
+        $supplier_pro = DB::table('table_supplier')
+                    -> orderby('supplier_id', 'desc')
+                    -> get();
 
         $edit_product     = DB::table('table_product')
                             -> where('product_id', $product_id)
-                            -> get();                                                                   //lấy data từ table('tbl_category_product') rồi so sánh với  $edit_category_product
+                            -> get();                                                   //lấy data từ table('tbl_category_product') rồi so sánh với  $edit_category_product
 
         $manager_product = view('admin.edit_product')
-                            -> with('edit_product',$edit_product)                                      //hiển thị với dữ liệu đã lấy đc từ $edit_category_product
-                            -> with('cate_product',$cate_product)
-                            -> with('brand_product',$brand_product);                                   //lấy dữ liệu từ biến $edit_category_product rồi gán vào 'edit_category_product' để dùng all_category_product lấy data
+                            -> with('edit_product',$edit_product)                       //hiển thị với dữ liệu đã lấy đc từ $edit_category_product
+                            -> with('cate_pro',$cate_pro)
+                            -> with('brand_pro',$brand_pro)
+                            -> with('supplier_pro',$supplier_pro);                      //lấy dữ liệu từ biến $edit_category_product rồi gán vào 'edit_category_product' để dùng all_category_product lấy data
 
 
-        return view('admin_layout') -> with('admin.edit_product', $manager_product);                    //dùng để trang admin_layout chứa manager_category_product -> gáng vào biến $manager_category_product
+        return view('admin_layout') -> with('admin.edit_product', $manager_product);     //dùng để trang admin_layout chứa manager_category_product -> gáng vào biến $manager_category_product
     }
 
     //update product
-    public function update_product(Request $request, $product_id)                               //Lấy biến request ở trên truyền tham số $category_product_id từ routes để controll cái category_id
+    public function update_product(Request $request, $product_id)                 //Lấy biến request ở trên truyền tham số $category_product_id từ routes để controll cái category_id
     {
-        $data = array();                                                                        //lấy data array ở trên
-
+        $this -> AuthLogin();                                                      //Goi lai fuction AuthLogin()
+        $data = array();                                                          //lấy data array ở trên
         $data['product_name']    = $request -> product_name;
-        $data['product_price']   = $request -> product_price;                                   //$data['category_name']: tên đã đặt migration => tên cột
-        $data['product_desc']    = $request -> product_desc;                                    //$request -> product_desc: lấy dữ liệu thì biến name = "product_desc" -> (add_product.blade.php)
+        $data['product_price']   = $request -> product_price;                     //$data['category_name']: tên đã đặt migration => tên cột
+        $data['product_desc']    = $request -> product_desc;                      //$request -> product_desc: lấy dữ liệu thì biến name = "product_desc" -> (add_product.blade.php)
         $data['product_content'] = $request -> product_content;
         $data['category_id']     = $request -> product_cate;
         $data['brand_id']        = $request -> product_brand;
+        $data['supplier_id']     = $request -> product_supplier;
         $data['product_status']  = $request -> product_status;
+
 
         $get_image               = $request -> file('product_image');
 
@@ -170,12 +203,58 @@ class ProductController extends Controller
     }
 
     //delete product
-    public function delete_product($product_id)                                             //không cần $request vì không lấy yêu cầu của db
+    public function delete_product($product_id)                               //không cần $request vì không lấy yêu cầu của db
     {
-        DB::table('table_product')                                                          //trỏ tới db table('tbl_category_product')
-        -> where('product_id',$product_id)                                                  //so sánh category_id và $category_product_id nếu === nhau
-        -> delete();                                                                        //xoá lại biến $data có  => $data['category_name']   = $request -> category_product_name;
-        session()->put('message', 'delete product successfully');                           //Tạo message thông báo xoá
-        return redirect('all-product');                                                     // điều hướng về trang '/all-brand-product'
+        $this -> AuthLogin();                                                 //Goi lai fuction AuthLogin()
+        DB::table('table_product')                                            //trỏ tới db table('tbl_category_product')
+        -> where('product_id',$product_id)                                    //so sánh category_id và $category_product_id nếu === nhau
+        -> delete();                                                          //xoá lại biến $data có  => $data['category_name']   = $request -> category_product_name;
+        session()->put('message', 'delete product successfully');             //Tạo message thông báo xoá
+        return redirect('all-product');                                       // điều hướng về trang '/all-brand-product'
+    }
+
+    //End function admin
+    //=======================================================================================================================================================
+    //HOME
+
+    //hiện trang chi-tiet-san-pham
+    public function detail_product($product_id)
+    {
+        $cate_product = DB::table('tbl_category_product')
+                    -> where('category_status', '1')
+                    -> orderby('category_id', 'desc')
+                    -> get();
+
+        $brand_product = DB::table('table_brand')
+                    -> where('brand_status', '1')
+                    -> orderby('brand_id', 'desc')
+                    -> get();
+
+        $details_product   = DB::table('table_product')
+        -> join('tbl_category_product', 'tbl_category_product.category_id', '=', 'table_product.category_id')        //join bảng table_product -> giao nhau với tbl_category_product với điều kiện 'tbl_category_product.category_id', '=', 'table_product.category_id' => lấy ra được sản phẩm thuộc catefory nào
+        -> join('table_brand','table_brand.brand_id', '=', 'table_product.brand_id')                                 //join bảng table_product -> giao nhau với table_brand => lấy ra được sản phẩm thuộc brand nào
+        -> join('table_supplier','table_supplier.supplier_id', '=', 'table_product.supplier_id')
+        -> where('table_product.product_id', $product_id) -> get();                                                  //nhóm lại theo 'table_product.product_id', 'desc' -> get()
+
+        //lap lai cac san pham trong category
+        foreach ($details_product as $key => $value)                            //$details_product lay ra san pham thuoc danh muc
+        {
+            $category_id = $value -> category_id;
+        }
+
+        //san pham lien quan => lay ra cac san pham trong category lien quan
+        $related_product  = DB::table('table_product')
+        -> join('tbl_category_product', 'tbl_category_product.category_id', '=', 'table_product.category_id')        //join bảng table_product -> giao nhau với tbl_category_product với điều kiện 'tbl_category_product.category_id', '=', 'table_product.category_id' => lấy ra được sản phẩm thuộc catefory nào
+        -> join('table_brand','table_brand.brand_id', '=', 'table_product.brand_id')                                 //join bảng table_product -> giao nhau với table_brand => lấy ra được sản phẩm thuộc brand nào
+        -> join('table_supplier','table_supplier.supplier_id', '=', 'table_product.supplier_id')
+        -> where('tbl_category_product.category_id', $category_id)
+        -> whereNotIn('table_product.product_id', [$product_id])                                             //lấy các sản phẩm thuộc table_product nhưng trừ ra sản phẩm có $product_id => lấy những sản phẩm TRỪ sản phẩm đang hiện chi tiết
+        -> get();                                                                                           // -> get()
+
+        return view('pages.product.show_details')
+            -> with('category', $cate_product)
+            -> with('brand', $brand_product)
+            -> with('details_product', $details_product)
+            -> with('related_product', $related_product);
     }
 }

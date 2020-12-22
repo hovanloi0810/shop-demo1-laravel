@@ -4,29 +4,28 @@
     <div class="tabs-block">
         <div class="tabulation-menu-wrapper text-center">
             <div class="tabulation-title simple-input">all</div>
-            <ul class="tabulation-toggle">
-                <li><a class="tab-menu active">Sản phẩm mới nhất</a></li>
-                <li><a class="tab-menu">top 10</a></li>
-                <li><a class="tab-menu">gadgets</a></li>
-                <li><a class="tab-menu">laptops</a></li>
-                <li><a class="tab-menu">accessories</a></li>
-            </ul>
+
+            @foreach ($category_name as $item => $name)
+
+                <ul class="tabulation-toggle">
+                    <li><a class="tab-menu active">{{ $name -> category_name }}</a></li>
+                </ul>
+
+            @endforeach
+
         </div>
         <div class="empty-space col-xs-b30"></div>
         <div class="tab-entry visible">
             <div class="row nopadding">
-                @foreach ($all_product as $item => $product)
+                @foreach ($category_by_id as $item => $product)
                 <div class="col-sm-4">
-
                     <div class="product-shortcode style-1">
-
                         <div class="title">
                             <div class="simple-article size-1 color col-xs-b5">
-                                <a href="#">{{ $product -> category_name }}</a>
+                                <a href="#">Còn trống chưa join tables</a>
                             </div>
                             <div class="h6 animate-to-green"><a href="#">{{ $product -> product_name }}</a></div>
                         </div>
-
                         <div class="preview">
                             <img src="{{URL::to ('public/uploads/product/'.$product -> product_image) }}" alt="" />
                             <div class="preview-buttons valign-middle">
@@ -537,7 +536,6 @@
             </div>
         </div>
 </div>
-
 
     <div class="empty-space col-xs-b35 col-md-b70"></div>
 @endsection

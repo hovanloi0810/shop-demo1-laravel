@@ -302,6 +302,19 @@
           </li>
           {{-- Brand Product UI --}}
 
+          {{-- Supplier UI --}}
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-tasks"></i>
+              <span>Vendor</span>
+              </a>
+            <ul class="sub">
+              <li><a href="{{URL::to ('/add-supplier') }}">Add Vendor</a></li>
+              <li><a href="{{URL::to ('/all-supplier') }}">Listed Vendor</a></li>
+
+            </ul>
+          </li>
+          {{-- /Supplier UI --}}
 
           {{-- Product UI --}}
           <li class="sub-menu">
@@ -320,17 +333,7 @@
           </li>
           {{-- /Product UI --}}
 
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Vendor</span>
-              </a>
-            <ul class="sub">
-              <li><a href="form_component.html">Add Vendor</a></li>
-              <li><a href="advanced_form_components.html">Listed Vendor</a></li>
 
-            </ul>
-          </li>
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-th"></i>

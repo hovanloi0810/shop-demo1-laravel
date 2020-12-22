@@ -60,6 +60,7 @@
             <div class="validate"></div>
         </div>
 
+
         <div class="form-group">
             <textarea class="form-control" name="product_desc" id="contact-message" placeholder="Description product" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
             <div class="validate"></div>
@@ -71,18 +72,29 @@
         </div>
 
         <div>
+            <label for="">Supplier</label>
+            <select class="form-control" name="product_supplier">
+                {{-- duyet du lieu trong table_supplier --}}
+                @foreach ($supplier_pro as $item => $suppl) {{-- $supplier_pro bien trong controller --}}
+
+                    <option value="{{ $suppl -> supplier_id }}"> {{-- lay ra supplier_id trong table_supplier --}}
+                        {{ $suppl -> supplier_name }}               {{-- lay ra supplier_name trong table_supplier --}}
+                    </option>
+                @endforeach
+
+            </select>
+        </div>
+
+        <div>
             <label for="">Category product</label>
             <select class="form-control" name="product_cate">
 
-                {{--  --}}
-                @foreach ($cate_product as $item => $cate)               {{-- Duyệt vòng lặp lấy data từ table với biến $cate_product --}}
+                @foreach ($cate_pro as $item => $cate)
 
-                    <option value="{{ $cate -> category_id }}">          {{-- value="{{ $cate -> category_id }} => lấy id trong  tbl_category_product  --}}
-                        {{ $cate -> category_name }}                     {{-- Biến $cate dùng để trỏ tới category_name trong table tbl_category_product --}}
+                    <option value="{{ $cate -> category_id }}">
+                        {{ $cate -> category_name }}
                     </option>
-
                 @endforeach
-                {{--  --}}
 
             </select>
         </div>
@@ -91,15 +103,12 @@
             <label for="">Brand product</label>
             <select class="form-control" name="product_brand">
 
-                {{--  --}}
-                @foreach ($brand_product as $item => $brand)              {{-- Duyệt vòng lặp lấy data từ table với biến $brand_product --}}
+                @foreach ($brand_pro as $item => $brand)
 
-                    <option value="{{ $brand -> brand_id }}">           {{-- value="{{ $brand -> brand_name }}" dùng để lấy id trong  table_brand--}}
-                        {{ $brand -> brand_name }}                        {{-- Biến $cate dùng để trỏ tới brand_name trong table table_brand --}}
+                    <option value="{{ $brand -> brand_id }}">
+                        {{ $brand -> brand_name }}
                     </option>
-
                 @endforeach
-                {{--  --}}
 
             </select>
         </div>

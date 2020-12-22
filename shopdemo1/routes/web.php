@@ -16,8 +16,14 @@ Route::get('/','HomeController@index'); //gọi HomeController và tới fuction
 
 Route::get('/trang-chu','HomeController@index'); //gọi HomeController và tới fuction index => để hiển thị trang home.blade.php vào layout.blade.php
 
+//Danh-muc-san-pham
+Route::get('/danh-muc-san-pham/{category_id}','CategoryProduct@show_category_home'); //trỏ tới CategoryProduct và tới fuction index
 
+//thuong-hieu-san-pham
+Route::get('/thuong-hieu-san-pham/{brand_id}','BrandProduct@show_brand_home'); //trỏ tới CategoryProduct và tới fuction index
 
+//chi-tiet-san-pham
+Route::get('/chi-tiet-san-pham/{product_id}','ProductController@detail_product'); //trỏ tới CategoryProduct và tới fuction index
 
 
 //backend
@@ -111,4 +117,30 @@ Route::get('/delete-product/{product_id}','ProductController@delete_product');//
 Route::post('/update-product/{product_id}','ProductController@update_product'); //vào controller Categoryproduct Gọi function update_category_product
                                                                                                         //form trong edit_category_product có method = POST
                                                                                                        //Thêm /{category_product_id} vì có liên quan tới category_id
-// Nhà cung cấp
+
+
+//Supplier
+Route::get('/add-supplier','SupplierController@add_supplier'); //chuyen ve fuction add_category_product => CategoryProduct controller
+                                                                            //khi có đường dẫn là '/add-brand-product'
+
+Route::get('/all-supplier','SupplierController@all_supplier'); //chuyen ve fuction all_category_product trong CategoryProduct controller
+
+Route::post('/save-supplier','SupplierController@save_supplier'); // khi chuyen toi '/save-brand-product' thi => CategoryProduct controller -> funcion save_category_product
+
+
+Route::get('/unactive-supplier/{supplier_id}','SupplierController@unactive_supplier');   //Gọi function unactive_category_product trong CategoryProduct
+                                                                                                                //=> /{ category_product_id } khai báo biến số category_id
+                                                                                                               //Vì trong all_category_product.blade.php <a href="{{URL::to ('/unactive-brand-product/'.$cate_pro->category_id) }}">
+
+Route::get('/active-supplier/{supplier_id}','SupplierController@active_supplier');   //Gọi function active_category_product trong CategoryProduct
+                                                                                                            //=> /{ category_product_id } thêm category_product_id vào URL
+
+Route::get('/edit-supplier/{supplier_id}','SupplierController@edit_supplier'); //vào controller Categoryproduct Gọi function edit_category_product
+                                                                                                    //=> /{ category_product_id } để biết id cần edit
+
+Route::get('/delete-supplier/{supplier_id}','SupplierController@delete_supplier');//vào controller Categoryproduct Gọi function delete_category_product
+                                                                                                        //=> /{ category_product_id } để biết id cần xoá
+
+Route::post('/update-supplier/{supplier_id}','SupplierController@update_supplier'); //vào controller Categoryproduct Gọi function update_category_product
+                                                                                                        //form trong edit_category_product có method = POST
+                                                                                                       //Thêm /{category_product_id} vì có liên quan tới category_id

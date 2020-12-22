@@ -826,7 +826,13 @@ span.pagination{border: none;}
 }
 
 /*shortcode 1*/
-.product-shortcode.style-1{border: 1px #f7f7f7 solid; padding: 25px 30px 5px 30px; background: #fff; overflow: hidden;}
+.product-shortcode.style-1{
+    border: 1px #f7f7f7 solid;
+    padding: 25px 30px 5px 30px;
+    background: #fff;
+    overflow: hidden;
+    height: 30rem;
+}
 .product-shortcode.style-1 .title{height: 60px; margin-bottom: 10px;}
 .product-shortcode.style-1 .description{height: 60px; overflow: hidden; position: relative;}
 .product-shortcode.style-1 .description .text{transition: all .3s; -webkit-transition: all .3s;}

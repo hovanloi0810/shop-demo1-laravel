@@ -3,6 +3,15 @@
 
 <!-- Mirrored from unionagency.one/exzo/index3.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Nov 2020 02:45:07 GMT -->
 <head>
+    <style>
+
+
+        .product-shortcode.style-1 .preview {
+            position: relative;
+            margin-bottom: 30px;
+            height: 14rem;
+        }
+    </style>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -60,7 +69,7 @@
                                 <div class="cart-toggle hidden-xs hidden-sm">
                                     <div class="cart-overflow">
                                         <div class="cart-entry clearfix">
-                                            <a class="cart-entry-thumbnail" href="#"><img src="img/product-1.png" alt="" /></a>
+                                            <a class="cart-entry-thumbnail" href="#"><img src="{{ ('public/frontend/img/product-1.png') }}" alt="" /></a>
                                             <div class="cart-entry-description">
                                                 <table>
                                                     <tr>
@@ -83,7 +92,7 @@
                                             </div>
                                         </div>
                                         <div class="cart-entry clearfix">
-                                            <a class="cart-entry-thumbnail" href="#"><img src="img/product-2.png" alt="" /></a>
+                                            <a class="cart-entry-thumbnail" href="#"><img src="{{ ('public/frontend/img/product-2.png') }}" alt="" /></a>
                                             <div class="cart-entry-description">
                                                 <table>
                                                     <tr>
@@ -168,29 +177,15 @@
                                 <nav>
                                     <ul>
                                         <li class="active">
-                                            <a href="{{URL::to ('/trang-chu') }}">Home</a>
+                                            <a href="{{URL::to ('/trang-chu') }}">Trang Chủ</a>
                                             <div class="menu-toggle"></div>
-                                            {{-- <ul>
-                                                <li class="active"><a href="index1.html">Homepage 1</a></li>
-                                                <li><a href="index2.html">Homepage 2</a></li>
-                                                <li><a href="index3.html">Homepage 3</a></li>
-                                                <li><a href="index4.html">Homepage 4</a></li>
-                                                <li><a href="index5.html">Homepage 5</a></li>
-                                                <li><a href="index6.html">Homepage 6</a></li>
-                                            </ul> --}}
-                                        </li>
-                                        <li>
-                                            <a href="about1.html">about us</a>
                                         </li>
                                         <li class="megamenu-wrapper">
-                                            <a href="products1.html">products</a>
+                                            <a href="products1.html">Sản phẩm</a>
                                             <div class="menu-toggle"></div>
                                             <div class="megamenu">
                                                 <div class="links">
-                                                    <a class="active" href="products1.html">Products Landing 1</a>
-                                                    <a href="products2.html">Products Landing 2</a>
-                                                    <a href="products3.html">Products Landing 3</a>
-                                                    <a href="product.html">Product Detail</a>
+                                                    <a href="product.html">Chi tiet sản phẫm</a>
                                                 </div>
                                                 <div class="content">
                                                     <div class="row nopadding">
@@ -240,7 +235,7 @@
                                                                     <div class="buttons-wrapper">
                                                                         <a class="button size-2 style-2" href="product.html">
                                                                             <span class="button-wrapper">
-                                                                                <span class="icon"><img src="{{ ('public/frontend/img/icon-1.png') }}" alt=""></span>
+                                                                                <span class="icon"><img src="{{URL::to ('public/frontend/img/icon-1.png') }}" alt=""></span>
                                                                                 <span class="text">Learn More</span>
                                                                             </span>
                                                                         </a>
@@ -319,30 +314,13 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href="services1.html">Services</a>
+                                            <a href="services1.html">Liên hệ</a>
                                         </li>
                                         <li>
-                                            <a href="blog3.html">blog</a>
-                                            <div class="menu-toggle"></div>
-                                            <ul>
-                                                <li>
-                                                    <a href="blog3.html">Blog Landing Pages</a>
-                                                    <div class="menu-toggle"></div>
-                                                    <ul>
-                                                        <li><a href="blog3.html">Blog Landing 1</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a href="blogdetail1.html">Blog Detail Pages</a>
-                                                    <div class="menu-toggle"></div>
-                                                    <ul>
-                                                        <li><a href="blogdetail1.html">Blog Detail 1</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                            <a href="blog3.html">Tin tức</a>
                                         </li>
                                         <li>
-                                            <a href="gallery1.html">gallery</a>
+                                            <a href="gallery1.html">Giỏ hàng</a>
                                             <div class="menu-toggle"></div>
                                             <ul>
                                                 <li><a href="gallery1.html">Gallery 1</a></li>
@@ -375,10 +353,10 @@
                                                                         <div class="swiper-button-next style-1"></div>
                                                                         <div class="swiper-wrapper">
                                                                             <div class="swiper-slide">
-                                                                                <img src="img/product-61.jpg" alt="" />
+                                                                                <img src="{{ ('public/frontend/img/product-61.jpg') }}" alt="" />
                                                                             </div>
                                                                             <div class="swiper-slide">
-                                                                                <img src="img/product-59.jpg" alt="" />
+                                                                                <img src="{{ ('public/frontend/img/product-59.jpg') }}" alt="" />
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -443,7 +421,6 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li><a href="contact1.html">contact</a></li>
                                     </ul>
                                     <div class="navigation-title">
                                         Navigation
@@ -623,577 +600,37 @@
                         @yield('content') {{-- lấy section('content') trong "home.blade.php" --}}
 
                         {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
-
-
-
-
                     </div>
                     <div class="col-md-3 col-md-pull-9">
-
-                        <div class="h4 col-xs-b25">popular categories</div>
+                        <div class="h4 col-xs-b25">Danh mục sản phẩm</div>
                         <ul class="categories-menu">
-                            <li>
-                                <a href="#">laptops &amp; computers</a>
-                                <div class="toggle"></div>
-                                <ul>
-                                    <li>
-                                        <a href="#">laptops &amp; computers</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">laptops &amp; computers</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">video &amp; photo cameras</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">smartphones</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">tv &amp; audio</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">gadgets</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">video &amp; photo cameras</a>
-                                <div class="toggle"></div>
-                                <ul>
-                                    <li>
-                                        <a href="#">laptops &amp; computers</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">laptops &amp; computers</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">video &amp; photo cameras</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">laptops &amp; computers</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">smartphones</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">tv &amp; audio</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">gadgets</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">smartphones</a>
-                                <div class="toggle"></div>
-                                <ul>
-                                    <li>
-                                        <a href="#">laptops &amp; computers</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">laptops &amp; computers</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">video &amp; photo cameras</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">smartphones</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">tv &amp; audio</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">gadgets</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">tv &amp; audio</a>
-                                <div class="toggle"></div>
-                                <ul>
-                                    <li>
-                                        <a href="#">laptops &amp; computers</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">laptops &amp; computers</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">video &amp; photo cameras</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">smartphones</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">tv &amp; audio</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">gadgets</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">gadgets</a>
-                                <div class="toggle"></div>
-                                <ul>
-                                    <li>
-                                        <a href="#">laptops &amp; computers</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">laptops &amp; computers</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">video &amp; photo cameras</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">smartphones</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">tv &amp; audio</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">gadgets</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">car electronics</a>
-                                <div class="toggle"></div>
-                                <ul>
-                                    <li>
-                                        <a href="#">laptops &amp; computers</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">laptops &amp; computers</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">video &amp; photo cameras</a>
-                                        <div class="toggle"></div>
-                                        <ul>
-                                            <li>
-                                                <a href="#">video &amp; photo cameras</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">smartphones</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">smartphones</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">tv &amp; audio</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">gadgets</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">video games &amp; consoles</a>
-                            </li>
-                            <li>
-                                <a href="#">software</a>
-                            </li>
-                            <li>
-                                <a href="#">offeci accessories</a>
-                            </li>
-                            <li>
-                                <a href="#">accessories</a>
-                            </li>
+                            @foreach ($category as $item => $cate)
+                                <li>
+                                    <a href="{{URL::to ('/danh-muc-san-pham/'.$cate -> category_id) }}">{{ $cate -> category_name }}</a>
+                                </li>
+                            @endforeach
                         </ul>
-
                         <div class="empty-space col-xs-b25 col-sm-b50"></div>
 
                         <div class="row">
                             <div class="col-sm-6 col-md-12">
-                                <div class="swiper-container banner-shortcode style-2">
-                                    <div class="swiper-button-prev hidden"></div>
-                                    <div class="swiper-button-next hidden"></div>
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="banner-shortcode style-2">
-                                                <div class="content">
-                                                    <div class="background" style="background-image: url({{ ('public/frontend/img/thumbnail-11.jpg') }});"></div>
-                                                    <div class="description valign-middle">
-                                                        <div class="valign-middle-content">
-                                                            <div class="simple-article size-1 color"><a href="#">GADGETS</a></div>
-                                                            <div class="h4 light"><a href="#">cool sport gadget</a></div>
-                                                            <div class="banner-title color">- 35% OFF</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="banner-shortcode style-2">
-                                                <div class="content">
-                                                    <div class="background" style="background-image: url({{ ('public/frontend/img/thumbnail-11.jpg') }});"></div>
-                                                    <div class="description valign-middle">
-                                                        <div class="valign-middle-content">
-                                                            <div class="simple-article size-1 color"><a href="#">GADGETS</a></div>
-                                                            <div class="h4 light"><a href="#">cool sport gadget</a></div>
-                                                            <div class="banner-title color">- 35% OFF</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="banner-shortcode style-2">
-                                                <div class="content">
-                                                    <div class="background" style="background-image: url({{ ('public/frontend/img/thumbnail-11.jpg') }});"></div>
-                                                    <div class="description valign-middle">
-                                                        <div class="valign-middle-content">
-                                                            <div class="simple-article size-1 color"><a href="#">GADGETS</a></div>
-                                                            <div class="h4 light"><a href="#">cool sport gadget</a></div>
-                                                            <div class="banner-title color">- 35% OFF</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="banner-shortcode style-2">
-                                                <div class="content">
-                                                    <div class="background" style="background-image: url({{ ('public/frontend/img/thumbnail-11.jpg') }});"></div>
-                                                    <div class="description valign-middle">
-                                                        <div class="valign-middle-content">
-                                                            <div class="simple-article size-1 color"><a href="#">GADGETS</a></div>
-                                                            <div class="h4 light"><a href="#">cool sport gadget</a></div>
-                                                            <div class="banner-title color">- 35% OFF</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
+                                <div class="h4 col-xs-b25">Thương hiệu</div>
+                                <ul class="categories-menu">
+                                    @foreach ($brand as $item => $brand)
 
-                                <div class="empty-space col-xs-b25 col-sm-b50"></div>
-                            </div>
-                            <div class="col-sm-6 col-md-12">
-                                <div class="h4 col-xs-b25">most viewed</div>
-                                <div class="product-shortcode style-4 clearfix">
-                                    <a class="preview" href="#"><img src="{{ ('public/frontend/img/product-28.jpg') }}" alt="" /></a>
-                                    <div class="description">
-                                        <div class="simple-article color size-1 col-xs-b5"><a href="#">WIRELESS</a></div>
-                                        <h6 class="h6 col-xs-b10"><a href="#">wireless headphones</a></h6>
-                                        <div class="simple-article dark">$98.00</div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-b10"></div>
-                                <div class="product-shortcode style-4 clearfix">
-                                    <a class="preview" href="#"><img src="img/product-29.jpg" alt="" /></a>
-                                    <div class="description">
-                                        <div class="simple-article color size-1 col-xs-b5"><a href="#">CASES</a></div>
-                                        <h6 class="h6 col-xs-b10"><a href="#">earphones case</a></h6>
-                                        <div class="simple-article dark">$12.00</div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-b10"></div>
-                                <div class="product-shortcode style-4 clearfix">
-                                    <a class="preview" href="#"><img src="img/product-30.jpg" alt="" /></a>
-                                    <div class="description">
-                                        <div class="simple-article color size-1 col-xs-b5"><a href="#">CASES</a></div>
-                                        <h6 class="h6 col-xs-b10"><a href="#">headphones case</a></h6>
-                                        <div class="simple-article dark">$4.00</div>
-                                    </div>
-                                </div>
+                                    <li>
+                                        <a href="{{URL::to ('/thuong-hieu-san-pham/'.$brand -> brand_id) }}">{{ $brand -> brand_name }}</a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+
+
 
                                 <div class="empty-space col-xs-b25 col-sm-b50"></div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-6 col-md-12">
-                                <div class="h4 col-xs-b25">feature products</div>
-                                <div class="swiper-container">
-                                    <div class="swiper-button-prev hidden"></div>
-                                    <div class="swiper-button-next hidden"></div>
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <div class="product-shortcode style-1 text-center">
-                                                <div class="title">
-                                                    <div class="simple-article size-1 color col-xs-b5"><a href="#">LAPTOPS</a></div>
-                                                    <div class="h6 animate-to-green"><a href="#">high-end spectre x360</a></div>
-                                                </div>
-                                                <div class="preview">
-                                                    <img src="{{ ('public/frontend/img/product-26.jpg') }}" alt="">
-                                                    <div class="preview-buttons valign-middle">
-                                                        <div class="valign-middle-content">
-                                                            <a class="button size-2 style-2" href="#">
-                                                                <span class="button-wrapper">
-                                                                    <span class="icon"><img src="{{ ('public/frontend/img/icon-1.png') }}" alt=""></span>
-                                                                    <span class="text">Learn More</span>
-                                                                </span>
-                                                            </a>
-                                                            <a class="button size-2 style-3" href="#">
-                                                                <span class="button-wrapper">
-                                                                    <span class="icon"><img src="{{ ('public/frontend/img/icon-3.png') }}" alt=""></span>
-                                                                    <span class="text">Add To Cart</span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="price">
-                                                    <div class="simple-article size-4 dark">$950.00</div>
-                                                </div>
-                                                <div class="description">
-                                                    <div class="simple-article text size-2">Mollis nec consequat at In feugiat mole stie tortor a malesuada</div>
-                                                    <div class="icons">
-                                                        <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                                        <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                        <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="empty-space col-xs-b60"></div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product-shortcode style-1 text-center">
-                                                <div class="title">
-                                                    <div class="simple-article size-1 color col-xs-b5"><a href="#">LAPTOPS</a></div>
-                                                    <div class="h6 animate-to-green"><a href="#">high-end spectre x360</a></div>
-                                                </div>
-                                                <div class="preview">
-                                                    <img src="img/product-27.jpg" alt="">
-                                                    <div class="preview-buttons valign-middle">
-                                                        <div class="valign-middle-content">
-                                                            <a class="button size-2 style-2" href="#">
-                                                                <span class="button-wrapper">
-                                                                    <span class="icon"><img src="img/icon-1.png" alt=""></span>
-                                                                    <span class="text">Learn More</span>
-                                                                </span>
-                                                            </a>
-                                                            <a class="button size-2 style-3" href="#">
-                                                                <span class="button-wrapper">
-                                                                    <span class="icon"><img src="img/icon-3.png" alt=""></span>
-                                                                    <span class="text">Add To Cart</span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="price">
-                                                    <div class="simple-article size-4 dark">$950.00</div>
-                                                </div>
-                                                <div class="description">
-                                                    <div class="simple-article text size-2">Mollis nec consequat at In feugiat mole stie tortor a malesuada</div>
-                                                    <div class="icons">
-                                                        <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                                        <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                        <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="empty-space col-xs-b60"></div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product-shortcode style-1 text-center">
-                                                <div class="title">
-                                                    <div class="simple-article size-1 color col-xs-b5"><a href="#">LAPTOPS</a></div>
-                                                    <div class="h6 animate-to-green"><a href="#">high-end spectre x360</a></div>
-                                                </div>
-                                                <div class="preview">
-                                                    <img src="{{ ('public/frontend/img/product-26.jpg') }}" alt="">
-                                                    <div class="preview-buttons valign-middle">
-                                                        <div class="valign-middle-content">
-                                                            <a class="button size-2 style-2" href="#">
-                                                                <span class="button-wrapper">
-                                                                    <span class="icon"><img src="img/icon-1.png" alt=""></span>
-                                                                    <span class="text">Learn More</span>
-                                                                </span>
-                                                            </a>
-                                                            <a class="button size-2 style-3" href="#">
-                                                                <span class="button-wrapper">
-                                                                    <span class="icon"><img src="img/icon-3.png" alt=""></span>
-                                                                    <span class="text">Add To Cart</span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="price">
-                                                    <div class="simple-article size-4 dark">$950.00</div>
-                                                </div>
-                                                <div class="description">
-                                                    <div class="simple-article text size-2">Mollis nec consequat at In feugiat mole stie tortor a malesuada</div>
-                                                    <div class="icons">
-                                                        <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                                        <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                        <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="empty-space col-xs-b60"></div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product-shortcode style-1 text-center">
-                                                <div class="title">
-                                                    <div class="simple-article size-1 color col-xs-b5"><a href="#">LAPTOPS</a></div>
-                                                    <div class="h6 animate-to-green"><a href="#">high-end spectre x360</a></div>
-                                                </div>
-                                                <div class="preview">
-                                                    <img src="img/product-25.jpg" alt="">
-                                                    <div class="preview-buttons valign-middle">
-                                                        <div class="valign-middle-content">
-                                                            <a class="button size-2 style-2" href="#">
-                                                                <span class="button-wrapper">
-                                                                    <span class="icon"><img src="img/icon-1.png" alt=""></span>
-                                                                    <span class="text">Learn More</span>
-                                                                </span>
-                                                            </a>
-                                                            <a class="button size-2 style-3" href="#">
-                                                                <span class="button-wrapper">
-                                                                    <span class="icon"><img src="img/icon-3.png" alt=""></span>
-                                                                    <span class="text">Add To Cart</span>
-                                                                </span>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="price">
-                                                    <div class="simple-article size-4 dark">$950.00</div>
-                                                </div>
-                                                <div class="description">
-                                                    <div class="simple-article text size-2">Mollis nec consequat at In feugiat mole stie tortor a malesuada</div>
-                                                    <div class="icons">
-                                                        <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                                        <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                        <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                                    </div>
-                                                </div>
-                                                <div class="empty-space col-xs-b60"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
 
-                                <div class="empty-space col-xs-b25 col-sm-b50"></div>
-                            </div>
-                            {{-- <div class="col-sm-6 col-md-12">
-                                <div class="h4 col-xs-b25">latest post</div>
-                                <div class="row m5 text-center">
-                                    <div class="blog-shortcode style-1">
-                                        <a href="#" class="preview simple-mouseover"><img src="{{ ('public/frontend/img/thumbnail-12.jpg') }}" alt="" /></a>
-                                        <div class="description">
-                                            <div class="simple-article size-1 grey col-xs-b5">APR 07 / 15 &nbsp;&nbsp;&nbsp;<a href="#" class="color">GADGETS</a></div>
-                                            <h6 class="h6 col-xs-b10"><a href="#">Phasellus rhoncus in</a></h6>
-                                            <div class="simple-article size-2">Etiam mollis tristique mi ac ultrices. Morbi vel neque eget lacus</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="blog-shortcode style-1">
-                                        <a href="#" class="preview simple-mouseover"><img src="{{ ('public/frontend/img/thumbnail-13.jpg') }}" alt="" /></a>
-                                        <div class="description">
-                                            <div class="simple-article size-1 grey col-xs-b5">APR 07 / 15 &nbsp;&nbsp;&nbsp;<a href="#" class="color">GADGETS</a></div>
-                                            <h6 class="h6 col-xs-b10"><a href="#">Phasellus rhoncus in</a></h6>
-                                            <div class="simple-article size-2">Etiam mollis tristique mi ac ultrices. Morbi vel neque eget lacus</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="empty-space col-xs-b25 col-sm-b50"></div>
-                            </div> --}}
-                        </div>
 
                     </div>
                 </div>
